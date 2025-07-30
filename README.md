@@ -2,7 +2,7 @@
 
 PrepSagr is a smart learning platform designed to help users prepare for technical interviews, and skill development.
 
-PrepSagr built on Monolithic Architecture for simplicity and user-friendly interface.
+PrepSagr is a Full-Stack project built on Monolithic Architecture for simplicity and user-friendly interface.
 
 ## Getting Started
 
