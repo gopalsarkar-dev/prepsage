@@ -1,9 +1,9 @@
 "use client";
 
-import { LoginFormType } from "@/lib/type";
-import { useForm } from "react-hook-form";
+import { SignupFormType } from "@/lib/type";
+import { signupFormSchema } from "@/lib/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginFormSchema } from "@/lib/zodSchema";
+import { useForm } from "react-hook-form";
 import {
 	Form,
 	FormControl,
@@ -24,30 +24,49 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
-const LoginForm = () => {
-	const lForm = useForm<LoginFormType>({
-		resolver: zodResolver(loginFormSchema),
-		defaultValues: { email: "", password: "" },
+const SignupForm = () => {
+	const lForm = useForm<SignupFormType>({
+		resolver: zodResolver(signupFormSchema),
+		defaultValues: { first_name: "", email: "", password: "" },
 		mode: "all",
 	});
 
-	const handelLoginFn = (lInfo: LoginFormType) => {
-		console.log(lInfo);
+	const handelSignupFn = (sInfo: SignupFormType) => {
+		console.log(sInfo);
+		lForm.reset();
 	};
 
 	return (
 		<>
-			<div className="grid h-[85dvh] place-items-center">
+			<div className="grid h-[80dvh] place-items-center">
 				<Form {...lForm}>
-					<form onSubmit={lForm.handleSubmit(handelLoginFn)}>
+					<form onSubmit={lForm.handleSubmit(handelSignupFn)}>
 						<Card className="w-[320px]">
 							<CardHeader className="grid gap-2">
-								<CardTitle>Login to your account</CardTitle>
+								<CardTitle>Create to your account</CardTitle>
 								<CardDescription>
-									Enter your email and password below to login to your account.
+									Enter your first_name, email and password below to create your
+									account.
 								</CardDescription>
 							</CardHeader>
 							<CardContent className="space-y-5">
+								<FormField
+									control={lForm.control}
+									name="first_name"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>First_name</FormLabel>
+											<FormControl>
+												<Input
+													type="text"
+													placeholder="enter your first_name..."
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
 								<FormField
 									control={lForm.control}
 									name="email"
@@ -88,14 +107,14 @@ const LoginForm = () => {
 								<Button
 									type="submit"
 									className="w-full cursor-pointer">
-									Login
+									Signup
 								</Button>
 								<div className="flex items-center justify-center gap-1.5 text-sm">
-									Don&apos;t have an account?{" "}
+									Already have an account?{" "}
 									<Link
-										href="/signup"
+										href="/login"
 										className="font-bold underline underline-offset-4">
-										Sign up
+										Login
 									</Link>
 								</div>
 							</CardFooter>
@@ -107,4 +126,4 @@ const LoginForm = () => {
 	);
 };
 
-export default LoginForm;
+export default SignupForm;
