@@ -10,6 +10,8 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import DarkMode from "../theme/DarkMode";
+import UserLogout from "../logout/UserLogout";
 
 const UserMenu = () => {
 	return (
@@ -38,13 +40,13 @@ const UserMenu = () => {
 						</DropdownMenuItem>
 
 						<DropdownMenuItem>
-							<div className="">Mode</div>
+							<DarkMode />
 						</DropdownMenuItem>
 					</DropdownMenuGroup>
 					<DropdownMenuSeparator />
 
 					<DropdownMenuItem>
-						<div className="">Logout</div>
+						<UserLogout />
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
