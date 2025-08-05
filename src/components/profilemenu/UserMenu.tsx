@@ -11,6 +11,7 @@ import {
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import DarkMode from "../theme/DarkMode";
+import UserLogout from "../logout/UserLogout";
 
 const UserMenu = () => {
 	return (
@@ -45,7 +46,7 @@ const UserMenu = () => {
 					<DropdownMenuSeparator />
 
 					<DropdownMenuItem>
-						<div className="">Logout</div>
+						<UserLogout />
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
