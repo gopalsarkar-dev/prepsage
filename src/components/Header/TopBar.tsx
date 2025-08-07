@@ -1,6 +1,6 @@
 import Link from "next/link";
+import UserPostDialog from "../post/UserPostDialog";
 import UserMenu from "../profilemenu/UserMenu";
-import { Button } from "../ui/button";
 
 const TopBar = () => {
 	return (
@@ -13,7 +13,7 @@ const TopBar = () => {
 						prepsage
 					</Link>
 					<div className="flex items-center justify-center gap-4">
-						<Button>Post</Button>
+						<UserPostDialog />
 						<UserMenu />
 					</div>
 				</section>
